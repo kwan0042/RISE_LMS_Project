@@ -1,0 +1,58 @@
+:root {
+    /* Colors */
+    --primary-green: #246161;
+    --primary-white: #ffffff;
+    --Primary-black: #000000;
+    --primary-light-blue: #197bbd;
+    --primary-dark-blue: #365787;
+    --primary-yellow: #f3cc4f;
+    --secondary-light-gray: #949494;
+    --secondary-pink: #e75a7c;
+    --secondary-green: #A7C0C0;
+    --hover-green: #124646;
+    --hover-pink: #cf234d;
+    --hover-yellow: #d6b13d;
+    --hover-dark-blue: #15335e;
+    --hover-light-blue: #02558d;
+    /* fonts */
+    --rise-button: "Avenir Next LT Pro", sans-serif;
+    --rise-font: "Avenir Next LT Pro", sans-serif;
+    --font-inter: "Inter";
+    /* font sizes */
+    --rise-button-size: 16px;
+    --font-size-48xl-3: 67.3px;
+    --rise-h3-size: 37.9px;
+    --rise-h4-size: 28.43px;
+    --font-size-xs-5: 11.5px;
+
+
+    /* Gaps */
+    --gap-3xs: 10px;
+    --gap-xs: 12px;
+    --gap-2xl: 21px;
+    --gap-7xs: 6px;
+
+    /* Paddings */
+    --padding-3xs: 10px;
+    --padding-10xl: 29px;
+
+    /* border radiuses */
+    --br-13xl: 32px;
+    --br-12xs: 1px;
+    --br-2xl: 21px;
+
+    /* Effects */
+    --rise-card-shadows: 0px 4px 24px rgba(36, 97, 97, 0.16);
+}
+
+html,
+body {
+    height: 100%;
+    background-color: var(--primary-light-blue);
+    font-family: var(--rise-font);
+}
+
+@font-face {
+    font-family: 'Avenir Next LT Pro';
+    src: url("/fonts/Avenir_Next_LT_Pro_Regular.otf");
+}

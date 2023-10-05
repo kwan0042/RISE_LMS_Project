@@ -1,0 +1,250 @@
+h1 {
+    font-family: 'Avenir Next LT Pro';
+    font-weight: bold;
+    font-size: 28.43px;
+    line-height: 130%;
+}
+
+
+
+.course-card {
+    width: 100%;
+    border-color: var(--primary-white);
+    background-color: var(--primary-white);
+    box-shadow: 0px 4px 24px rgba(36, 97, 97, 0.16);
+    border-radius: 8px 8px 8px 8px;
+    overflow: hidden;
+    
+}
+
+.course-card img {
+    width: 100%;
+    height: 113px;
+    object-fit: cover;
+}
+
+.course-card-title {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 15px
+
+}
+
+.course-card-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+
+.viewCoursesBtn {
+    cursor: pointer;
+    border: none;
+    background-color: var(--secondary-pink);
+    position: relative;
+    border-radius: 32px;
+    height: 53px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+
+.viewCoursesBtn:hover {
+    background-color: var(--hover-pink);
+}
+
+.viewCoursesBtn-text {
+    position: relative;
+    font-size: 16px;
+    line-height: 100%;
+    font-family: var(--rise-button);
+    color: var(--primary-white);
+    text-align: left;
+}
+
+/* scrollbar */
+.scrollbar-green::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollbar-green::-webkit-scrollbar-thumb:vertical {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-green);
+}
+
+
+.extension-card {
+    margin: auto;
+    position: relative;
+    color: inherit;
+
+    width: 90%;
+    background-color: var(--primary-white);
+    box-shadow: 0px 4px 24px rgba(36, 97, 97, 0.16);
+}
+
+.extension-card-header {
+    height: 30px;
+    white-space: nowrap;
+}
+
+.extension-card-header-text {
+    position: relative;
+    display: inline-block;
+    top: 2px;
+    font-size: 21.33px;
+    line-height: 180%;
+    color: var(--primary-green);
+    font-family: var(--rise-button);
+    text-align: left;
+}
+
+.extension-card-header-icon {
+    position: relative;
+    display: inline-block;
+    height: 24px;
+    width: 15%;
+}
+
+hr.solid {
+    border-top: 1px solid var(--primary-green);
+}
+
+/* my messages */
+.myMessages-card {
+    height: 240px;
+}
+
+.messages-card-body {
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.preview {
+    display: flex;
+    align-items: flex-start;
+}
+
+.preview-content {
+    flex-grow: 1;
+}
+
+.sender-pic {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    margin-right: 10px;
+    background-color: #c3c3c3;
+}
+
+.sender-name {
+    position: relative;
+    font-size: 14px;
+    line-height: 100%;
+    font-family: 'Avenir Next LT Pro';
+    color: #000;
+    text-align: left;
+}
+
+.preview-text {
+    position: relative;
+    font-size: 14px;
+    line-height: 150%;
+    font-family: 'Avenir Next LT Pro';
+    color: #828282;
+    text-align: left;
+    max-width: 120px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.preview-divider {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    width: 95%;
+}
+
+
+/* my calendar */
+.myCalendar-card {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    height: auto;
+}
+
+#myCalendar-card-title {
+    margin-left: 2%;
+    width: 65%;
+}
+
+.calendar-content {
+    margin: 1% 3% 1% 3%;
+    padding: 1% 4% 1% 4%;
+    border-radius: 8px;
+    border: 1px solid var(--primary-green);
+}
+
+#calendar-content-header {
+    white-space: nowrap;
+}
+
+#mandyr {
+    display: inline-block;
+    font-size: 12.67px;
+    font-weight: 900;
+    font-family: Inter;
+    color: var(--primary-black);
+    width: 65%;
+    text-align: left;
+}
+
+.calendar-btn,
+#pre,
+#nex {
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+}
+
+.calendar-btn:hover {
+    background-color: var(--secondary-pink);
+}
+
+.calendar-btn.active {
+    background-color: var(--secondary-pink);
+}
+
+#calendar-table {
+    position: relative;
+    font-size: 7.39px;
+}
+
+#calendar-table .today-date {
+    background-color: var(--secondary-pink);
+}
+
+tbody td {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+tbody td.previous-next-month {
+    background-color: #f2f3f7;
+}

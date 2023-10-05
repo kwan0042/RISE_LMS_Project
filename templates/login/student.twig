@@ -1,0 +1,46 @@
+{# Student login page #}
+
+{% extends 'login/common.twig' %}
+
+{% block content %}
+{{ parent() }}
+    <h2>Student Login</h2>
+    {% if error %}
+        <div class="alert alert-danger align-self-center" role="alert" style="display: inline-block">
+            {{ error }}
+        </div>
+    {% endif %}
+    <!-- Log in Form -->
+    <form method="post" action="/login/student" class="login-form col-12 col-sm-7 col-md-5 col-lg-4 col-xl-3 align-self-center">
+        <div class="text-start">
+            <label for="username">Username</label>
+            <div class="input-group login-input-group">
+                <span class="input-group-text"><img
+                        src="img/icons/email.svg" /></span>
+                <input id="username" name="username" class="form-control" type="text" value="{{ userName is defined ? userName : '' }}">
+            </div>
+        </div>
+        <div class="pt-2 text-start">
+            <label for="password">Password</label>
+            <div class="input-group login-input-group">
+                <span class="input-group-text"><img
+                        src="img/icons/lock.svg" /></span>
+                <input id="password" name="password" class="form-control" type="password">
+            </div>
+
+            <div class="d-flex justify-content-between pt-1">
+                <a href="{{ url_for('login') }}" id="backBtn" style=" font-size: 12px; text-decoration: none; color: var(--primary-light-blue);">&lt;&lt; Back</a>
+                <a href="{{ url_for('login.forgot_password') }}" id="fpassBtn" style=" font-size: 12px; text-decoration: none; color: var(--primary-light-blue);">Forget password</a>
+            </div>
+        </div>
+        <div class=" text-center">
+            <input id="logInBtn" class="logInBtn btn-md" type="submit" value="Log in" />
+        </div>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="/script/login/student.js"></script>
+{% endblock %}
+

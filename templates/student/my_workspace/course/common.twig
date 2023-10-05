@@ -1,0 +1,91 @@
+{# Common template for all course pages under the my workspace section for students #}
+
+{% extends "student/my_workspace/common.twig" %}
+
+{% block contentBody %}
+
+  {# Include the parents content #}
+  {{ parent() }}
+
+  <!-- Cover Photo -->
+  <div class="coverPhoto bg-success" style="background-image: url('/img/courses/{{ course.courseCode|lower }}.png'); background-size: cover;">
+    <!-- Course Title -->
+    <div class="d-flex align-items-start flex-column h-100">
+      <div class="mt-auto p-2">
+        <p class="courseTitle m-2">{{ course.name }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="row justify-content-center ">
+      <div class=" col-md-9 ">
+
+        <div class="conNav">
+          <a id="workbookTag" class="Ctag {{ currentCourseSection == 'Workbook' ? 'active' : '' }}" href="{{ url_for('my_workspace.course.workbook', {'courseCode': course.courseCode}) }}">WorkBook</a>
+          <a id="outlineTag" class="Ctag {{ currentCourseSection == 'Outline' ? 'active' : '' }}" href="/docs/courses/{{ course.courseCode|lower }}_outline.pdf">Outline</a>
+        </div>
+
+      </div>
+      <div class=" col-md-3 mx-auto">
+
+        <div class="breadcrumb pageBreadcrumb p-2">
+          <a class="breadcrumb-item" href="{{ url_for('my_workspace') }}">My Workspace</a>
+          <a class="breadcrumb-item" href="{{ url_for('my_workspace.course', {'courseCode': course.courseCode}) }}">{{ course.courseCode }}</a>
+          {% if currentCourseSection == 'Workbook' %}
+          <a class="breadcrumb-item" href="{{ url_for('my_workspace.course.workbook', {'courseCode': course.courseCode}) }}">Workbook</a>
+          {% elseif currentCourseSection == 'Outline' %}
+          <a class="breadcrumb-item" href="{{ url_for('my_workspace.course.outline', {'courseCode': course.courseCode}) }}">Outline</a>
+          {% endif %}
+
+        </div>
+
+      </div>
+
+      <div class=" col-md-9 ">
+
+          {% block coursePageContent %}
+          
+          {% endblock %}
+        
+      </div>
+
+      <div class="widgetDiv col-md-3 px-0 mx-auto ">
+
+        <!-- my calendar -->
+        <div class="card extension-card myCalendar-card ">
+          <div class="extension-card-header d-flex justify-content-between">
+            <div class="mx-3 mt-1">
+              <b id="myCalendar-card-title" class="extension-card-header-text">My Calendar</b>
+            </div>
+            <div class="mx-2 mt-2">
+              <button class="extension-card-header-icon calendar-btn">
+                <img class="myCalendar-card-icon" src="img/icons/calendar.svg">
+              </button>
+              <button class="extension-card-header-icon calendar-btn ">
+                <img class="myCalendar-card-icon" src="img/icons/view.svg">
+              </button>
+            </div>
+          </div>
+          <hr class="solid">
+
+          <div class="eventDiv">
+            <div class="currentDay text-center ">
+              <div id="current_date">
+              </div>
+            </div>
+            <div class="eventDiv">
+              <div class="showEventbtn text-center">
+                <p class="upEventbtnText">Upcoming events</p>
+                <i class="arrow arrow-bottom"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,152 @@
+{# Index view (course selection) for the my workspace section for studens #}
+
+{# Inherits from the common my workspace template #}
+{% extends "student/my_workspace/common.twig" %}
+
+{% block stylesheets %}
+{{ parent() }}
+    <link rel="stylesheet" href="css/student/index.css" />
+    
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script defer src="script/student/calendar.js"></script>
+{% endblock %}
+
+{% block contentBody %}
+    {{ parent() }}
+    <div class="container-fluid">
+          <div class="row">
+            <div class="col-12 col-xl-9 pt-4 px-4">
+              <p class="mx-2" style="font-size: var(--rise-h4-size);">Welcome back, {{ student.firstName }}!</p>
+              <!-- courses -->
+              {% if courses is empty %}
+                <p>No courses found</p>
+              {% else %}
+                <div class="row">
+                  {% for course in courses %}
+                    <div class="col-12 col-md-4">
+                      <div class="card course-card h-100">
+                        <a class="course-card-link h-100" href="{{ url_for('my_workspace.course', {'courseCode': course.courseCode}) }}">
+                          <img class="course-card-img" src="/img/courses/{{ course.courseCode|lower }}_thumb.png" />
+                          <div class="course-card-title">
+                          {{ course.name }}
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+                {# <!-- View all Button -->
+                <div class="row">
+                  <div class="col-md-4">
+                    <button class="viewCoursesBtn">
+                      <b class="viewCoursesBtn-text">View All Courses</b>
+                    </button>
+                  </div>
+                </div> #}
+              {% endif %}
+            </div>
+              <!-- Widget Div -->
+            <div class="widgetDiv col-12  col-xl-3  px-0  pt-5">
+              <div class="card extension-card myMessages-card ">
+                <div class="extension-card-header">
+                  {# <img class="extension-card-header-icon" alt="message icon" src="img/icons/message.svg" /> #}
+                  <b class="extension-card-header-text mx-3">My Messages</b>
+                </div>
+                <hr class="solid" />
+
+                <div class="messages-card-body scrollbar-green">
+                  <div class="preview">
+                    <img class="sender-pic" src="img/student/my_workspace/preview_pic/abigail.png" />
+                    <div class="preview-content">
+                      <div class="sender-name">Abigail</div>
+                      <div class="preview-text">Could you review the following assignment and submit it
+                        before friday?</div>
+                    </div>
+                  </div>
+                  <hr class="preview-divider" />
+
+                  <div class="preview">
+                    <img class="sender-pic" src="img/student/my_workspace/preview_pic/john.png" />
+                    <div class="preview-content">
+                      <div class="sender-name">John</div>
+                      <div class="preview-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </div>
+                    </div>
+                  </div>
+                  <hr class="preview-divider" />
+
+                  <div class="preview">
+                    <img class="sender-pic" src="img/student/my_workspace/preview_pic/paul.png" />
+                    <div class="preview-content">
+                      <div class="sender-name">Paul</div>
+                      <div class="preview-text">Pellente sque ac ligula in tellus feugiat iaculis.</div>
+                    </div>
+                  </div>
+                  <hr class="preview-divider" />
+
+                  <div class="preview">
+                    <img class="sender-pic" src="" />
+                    <div class="preview-content">
+                      <div class="sender-name">Anna</div>
+                      <div class="preview-text">Lorem adip iscing sque the tellus iaculis, in conse ctetur
+                        it.</div>
+                    </div>
+                  </div>
+                  <hr class="preview-divider" />
+
+                </div>
+              </div>
+              <!-- my calendar -->
+              <div class="card extension-card myCalendar-card ">
+                <div class="extension-card-header d-flex justify-content-between">
+                  <div class="mx-3 mt-1">
+                    <b id="myCalendar-card-title" class="extension-card-header-text">My Calendar</b>
+                  </div>
+                  <div class="mx-2 mt-2">
+                    <button class="extension-card-header-icon calendar-btn active">
+                      <img class="myCalendar-card-icon" src="img/icons/calendar.svg">
+                    </button>
+                    <button class="extension-card-header-icon calendar-btn ">
+                      <img class="myCalendar-card-icon" src="img/icons/view.svg">
+                    </button>
+                  </div>
+                </div>
+                <hr class="solid">
+
+                <div class="calendar calendar-content">
+                  <div id="calendar-content-header">
+                    <h4 id="mandyr"></h4>
+                    <button class="extension-card-header-icon" id="pre" onclick="pre()">
+                      <img src="img/icons/pre.svg" />
+                    </button>
+                    <button class="extension-card-header-icon" id="nex" onclick="nex()">
+                      <img src="img/icons/next.svg" />
+                    </button>
+                  </div>
+                  <table class="table table-responsive-sm" id="calendar-table">
+                    <thead>
+                      <tr>
+                        <th>Mo</th>
+                        <th>Tu</th>
+                        <th>We</th>
+                        <th>Th</th>
+                        <th>Fr</th>
+                        <th>Sa</th>
+                        <th>Su</th>
+                      </tr>
+                    </thead>
+                    <tbody id="calendar-table-body">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            
+            </div>
+          
+
+        
+        </div>
+{% endblock %}

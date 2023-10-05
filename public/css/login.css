@@ -1,0 +1,145 @@
+html,
+body {
+   overflow: hidden;
+   background-color: white;
+}
+
+#loginSidebar {
+   background-color: var(--primary-light-blue);
+   height: min-content;
+}
+
+.sideLogo {
+   padding: 40px;
+   width: 100%;
+   max-width: 500px;
+}
+
+@media screen and (min-width: 768px) {
+   #loginSidebar {
+      height: 100%;
+   }
+   .sideLogo {
+      padding-bottom: 0px;
+   }
+}
+
+/* side bar background logo */
+.sideBgLogo {
+   width: 100%;
+   height: 100%;
+   background-size: 200%;
+   background-repeat: no-repeat;
+   background-position: bottom;
+   opacity: 30%;
+   background-image: url("/img/Rise_white_visual_logo_only.png");
+}
+
+/* login div */
+.mainLogIn {
+   height: 100%;
+   width: 75%;
+   padding-top: 10%;
+   padding-bottom: 10%;
+   background-color: var(--primary-white);
+
+}
+
+#loginContent>h1, #loginContent>h2 {
+   font-weight: 400;
+}
+
+#loginContent>h1 {
+   color: var(--primary-dark-blue);
+}
+
+#loginContent>h2 {
+   color: var(--primary-light-blue);
+}
+
+/* role div */
+.role-selection-buttons {
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   border-radius: 10px;
+   box-shadow: 1px 3px 5px;
+}
+
+/* role button */
+.button {
+   padding: .5rem;
+   flex-shrink: 0;
+   background: var(--primary-white);
+   color: var(--primary-light-blue);
+   transition-duration: 0.4s;
+   text-decoration: none;
+}
+
+.button:hover {
+   background: var(--primary-yellow);
+   color: var(--primary-white);
+}
+
+/* Student role button */
+.button1 {
+   border-radius: 10px 10px 0px 0px;
+   border-top: 2px solid var(--primary-light-blue);
+   border-right: 2px solid var(--primary-light-blue);
+   border-left: 2px solid var(--primary-light-blue);
+   border-bottom: 0px solid var(--primary-light-blue);
+}
+
+/* Facilitator role button */
+.button2 {
+
+   border: 2px solid var(--primary-light-blue);
+   z-index: 1;
+}
+
+/* administrator role button */
+.button3 {
+   border-radius: 0px 0px 10px 10px;
+   border-top: 0px solid var(--primary-light-blue);
+   border-right: 2px solid var(--primary-light-blue);
+   border-left: 2px solid var(--primary-light-blue);
+   border-bottom: 2px solid var(--primary-light-blue);
+
+}
+
+.login-form {
+   color: var(--primary-light-blue) !important;
+}
+
+.login-input-group {
+   box-shadow: 1px 3px 5px black;
+   
+   border-radius: var(--bs-border-radius);
+   overflow: hidden;
+}
+
+.login-input-group>.form-control, .login-input-group>.input-group-text {
+   border: none;
+   color: var(--primary-light-blue);
+   border: 2px solid var(--primary-light-blue);
+   overflow: hidden;
+   box-shadow: none;
+}
+
+/* Select/Login/Getlink btn */
+.getLinkBtn,
+.logInBtn {
+   margin-top: 30px;
+   width: 100%;
+   height: 40px;
+   background: var(--secondary-pink);
+   color: var(--primary-white);
+   border-radius: 10px;
+}
+
+.getLinkBtn:hover,
+.logInBtn:hover,
+.selectBtn:hover {
+   background: var(--primary-light-blue);
+   color: var(--primary-white);
+}

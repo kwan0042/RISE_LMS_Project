@@ -1,0 +1,120 @@
+{# Common template for all pages for logged in students #}
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <base href="/">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>R.I.S.E. System</title>
+      {% block stylesheets %}
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+          crossorigin="anonymous">
+        <link rel="stylesheet" href="css/common.css" />
+      <link rel="stylesheet" href="css/student/common.css" />
+      {% endblock %}
+  </head>
+
+  <body>
+      <nav class="topnav d-flex justify-content-between">
+          <!-- home and logo -->
+          <div class="d-flex justify-content-start align-items-center">
+              <!-- home -->
+              <a href="./" id="home" class="p-2">
+                <img id="icon-home" alt="home icon" src="img/icons/home.svg">
+              </a>
+              <!-- RISE logo -->
+              <img class="p-2" id="rise-website-logo" alt="RISE website logo" src="img/RISE-website-logo-tm-1.png">
+          </div>
+          <div class="p-2 d-flex justify-content-start align-items-center">
+              <!-- message icon -->
+              <button class="topnav-button p-2">
+                  <img id="icon-message" alt="message icon" src="img/icons/message.svg">
+              </button>
+              <!-- bell icon -->
+              <button class="topnav-button p-2">
+                  <img id="icon-bell" alt="bell icon" src="img/icons/bell.svg">
+              </button>
+              <!-- user profile -->
+              <div class="personal-profile p-2">
+                  <b class="userName">{{ student.firstName }}</b>
+                  <button class="personal-profile-photo" id="personalProfile"></button>
+              </div>
+          </div>
+      </nav>
+    
+    <div class="row sideBarNBody">
+        <div class="sidenav col-2 pt-4 d-flex flex-column" >
+            <div class="d-grid gap-3 mx-auto">
+                <!-- home btn-->
+                <div id="moblieHomeBtn" hidden>
+                    <form action="./home" method="post">
+                        <button class="sidenavButton btn" type="submit">
+                            <img class="sidenavIcon" id="icon-home" alt="workspace icon" src="img/icons/home.svg"> 
+                            <div class="sidenavText">Home</div>
+                        </button>
+                    </form>
+                </div>
+                <!-- my workspace btn-->
+                <a href="./my_workspace" class="sidenavButton btn {{ activeSection == 'my_workspace' ? 'active' : '' }}">
+                    <img class="sidenavIcon" id="myWorkspace" alt="workspace icon" src="img/icons/category.svg">
+                    <div class="sidenavText">My Workspace</div>
+                </a>
+                <!-- my assignments btn-->
+                <a href="./my_assignments" class="sidenavButton btn {{ activeSection == 'my_assignments' ? 'active' : '' }}">
+                    <img class="sidenavIcon" id="myAssignments" alt="assignments icon" src="img/icons/edit.svg">
+                    <div class="sidenavText">My Assignments</div>
+                </a>
+                <!-- my facilitators btn -->
+                <a href="./my_facilitators" class="sidenavButton btn {{ activeSection == 'my_facilitators' ? 'active' : '' }}">
+                    <img class="sidenavIcon" id="myFacilitators" alt="facilitator icon" src="img/icons/user.svg">
+                    <div class="sidenavText">My Facilitator</div>
+                </a>
+            </div> 
+            <div class="d-grid mt-auto mb-3 mx-auto">
+                
+                <form class="mobileProfileForm text-center" action="./mobileProfile" method="get">
+                    <button class="mobileProfile" id="personalProfile"></button>
+                </form>
+
+                <a href="./logout" class="sidenavButton btn logout-button">
+                    <img class="sidenavIcon" id="logout" alt="logout" src="img/icons/Logout.svg">
+                    <div class="sidenavText">Log Out</div>
+                </a>
+            </div>
+
+        </div>
+        <div class="contentBody col">
+            {% block contentBody %}
+            <!-- Content here -->
+            {% endblock %}
+        </div>
+    </div>
+    <!-- user portfolio-overlay -->
+    <div id="myModal" class="uploadIconDiv">
+        <div class="uploadIconBody text-center">
+                <div class=" d-flex">
+                    <p class="profile-title m-auto">Edit Profile Photo</p>
+                    <span class="close ">&times;</span>
+                </div>
+                <div class="photo">
+                    <img class="currentPhoto" alt="current photo" src="img/ellipse-1@2x.png">
+                </div>
+                <button id="adjust-crop">Adjust Crop</button>
+                <button class="uploadBtn">
+                    <b class="uploadBtnTexT">Upload New Photo</b>
+                </button>
+        </div>
+    </div>
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script src="script/student/common.js"></script>
+        <script src="script/student/calendar.js"></script>
+      {% endblock %}
+    </body>
+
+</html>

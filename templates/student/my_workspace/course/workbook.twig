@@ -1,0 +1,61 @@
+{# Workbook template #}
+
+{# Inherits from the common course template #}
+{% extends "student/my_workspace/course/common.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/css/student/my_workspace/course/workbook.css" />
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script defer src="/script/student/my_workspace/course/workbook.js"></script>
+{% endblock %}
+
+{% set currentCourseSection = 'Workbook' %}
+
+{% block coursePageContent %}
+        
+              <!-- Weekly To Do content -->
+              <div class="ToDoDiv">
+                {# This was the old style for the workbook items but due to the way the backend developed the service it has been changed for now #}
+                {# {% for week in workbook.weeks %}
+                  <div class="toDoItem">
+                    <b style="font-size: 21.33px;">Week {{ week.week_number }}</b>
+                    <br>
+                    <br>
+                    <b>To-do:</b>
+                    {% for todo in week.todos %}
+                      <div class="ToDoBody d-flex justify-content-between mt-3">
+                        <div class="taskCheckDiv mx-3 pt-3 form-check">
+                            <input class="form-check-input todo-checkbox" type="checkbox" value="{{ todo.todo_id }}" {{ todo.checked ? 'checked' : ''}}>
+                        </div>
+                        <div class="taskDetail pt-3 pb-3">
+                            <p>{{ todo.date_assigned }}</p>
+                            <p style="font-size: 21.33px;">{{ todo.title }}</p>
+                            <p>{{ todo.description }}</p>
+                            <p>{{ todo.assignment }}</p>
+                            <b>Due: {{ todo.due_date }} at {{ todo.due_time }}.</b>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endfor %} #}
+                {% for todo in workbook %}
+                  <div class="toDoItem">
+                    <b>To-do:</b>
+                    <div class="ToDoBody d-flex justify-content-between mt-3">
+                      <div class="taskCheckDiv mx-3 pt-3 form-check">
+                          <input class="form-check-input todo-checkbox" type="checkbox" value="{{ todo.toDoItemId }}" {{ todo.toDoItemStatus == "Complete" ? 'checked' : ''}}>
+                      </div>
+                      <div class="taskDetail pt-3 pb-3">
+                          {{ todo.toDoItemContentHTML | raw }}
+                          <b>Due: {{ todo.deadline }}.</b>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            
+{% endblock %}
